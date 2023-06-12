@@ -23,8 +23,8 @@ const CityDetails = () => {
       <Text style={styles.name}>
         {city.name}
       </Text>
+      <Text style={styles.detailsTitle}>Details:</Text>
       <ScrollView style={styles.detailsContainer}>
-        <Text style={styles.detailsTitle}>Details:</Text>
         <Text style={styles.detailsText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at purus
           euismod, vestibulum dolor a, pulvinar odio. Nunc suscipit felis eget
@@ -88,13 +88,14 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     margin: 12,
   },
-  detailsContainer: {
-    marginHorizontal: 12
-  },
   detailsTitle: {
     fontSize: 18,
     fontWeight: '500',
-    marginBottom: 8,
+    marginHorizontal: 12,
+    marginBottom: 8
+  },
+  detailsContainer: {
+    marginHorizontal: 12
   },
   detailsText: {
     fontSize: 16,
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: 'absolute',
-    top: 40,
+    top: 48,
     left: 12,
   },
 })
