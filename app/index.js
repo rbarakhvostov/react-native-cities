@@ -9,7 +9,6 @@ import Animated,
   withRepeat,
   withDelay
 } from 'react-native-reanimated'
-import { StatusBar } from 'expo-status-bar';
 import cities from "../data/cities"
 
 
@@ -51,11 +50,11 @@ export const CityItemSkeleton = () => {
 const CityGrid = () => {
   const [loading, setLoading] = useState(false)
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false)
-  //   }, 5000)
-  // }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+  }, [])
 
   if (loading) {
     return (
