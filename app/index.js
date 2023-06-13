@@ -9,6 +9,7 @@ import Animated,
   withRepeat,
   withDelay
 } from 'react-native-reanimated'
+import { StatusBar } from 'expo-status-bar';
 import cities from "../data/cities"
 
 
@@ -38,35 +39,36 @@ export const CityItemSkeleton = () => {
     <View style={styles.city}>
       <Animated.View style={[styles.image, animatedStyles]} />
       <Animated.View style={[{
-        width: '50%',
-        height: 20,
-        backgroundColor: 'gainsboro',
-      }, animatedStyles]} />
+          width: '50%',
+          height: 20,
+          backgroundColor: 'gainsboro',
+        }, animatedStyles]}
+      />
     </View>
   )
 }
 
 const CityGrid = () => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 5000)
-  }, [])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 5000)
+  // }, [])
 
   if (loading) {
     return (
       <FlatList 
         data={Array(10)}
-        renderItem={() => <CityItemSkeleton/>}
+        renderItem={() => <CityItemSkeleton />}
         numColumns={2}
       />
     )
   }
 
   return (
-    <FlatList 
+    <FlatList
       data={cities}
       renderItem={({item}) => <CityItem item={item} />}
       keyExtractor={(item) => item.name}
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     aspectRatio: 4/5,
-    marginBottom: 8,
+    marginVertical: 8,
     borderRadius: 8,
     backgroundColor: 'gainsboro'
   },
